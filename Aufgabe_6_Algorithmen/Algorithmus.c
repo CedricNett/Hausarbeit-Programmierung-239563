@@ -7,14 +7,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int komplette_zahlenreihe[]={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+int komplette_zahlenreihe[]={ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 
 int zahlenreihen_pruefung(int reihe)
 {
     #ifdef DEBUG
     printf("\x1b[34m//Zahlenreihe: zahl: %i\x1b[0m", reihe);
     #endif
-    for (int i=0; i<100; i++)
+    for (int i=0; i<20; i++)
     {
         if (komplette_zahlenreihe[i] == reihe)
         {
