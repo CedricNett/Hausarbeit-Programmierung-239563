@@ -11,8 +11,8 @@
 #include <math.h>
 #include <string.h>
 #include <time.h>
-#define MAX 1000
-#define NUMS_TO_GENERATE 1000
+#define MAX 20
+#define NUMS_TO_GENERATE 100
 
 int main() {
 
