@@ -7,16 +7,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int komplette_zahlenreihe[]={ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+int komplette_ziffernreihe[]={ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-int zahlenreihen_pruefung(int reihe)
+int komplette_ziffernreihe_pruefung(int reihe)
 {
     #ifdef DEBUG
-    printf("\x1b[34m//Zahlenreihe: zahl: %i\x1b[0m", reihe);
+    printf("\x1b[34m//Ziffernreihe: zahl: %i\x1b[0m", reihe);
     #endif
-    for (int i=0; i<20; i++)
+    for (int i=0; i<10; i++)
     {
-        if (komplette_zahlenreihe[i] == reihe)
+        if (komplette_ziffernreihe[i] == reihe)
         {
                 #ifdef DEBUG
                 printf("\t\x1b[34m//DEBUG-PRIMZAHL-PRÜFUNG: \x1b[32mreturn 1 \x1b[0m\n");
@@ -32,25 +32,25 @@ int zahlenreihen_pruefung(int reihe)
 
 int main()
 {
-    FILE * in_zahlenreihe;
-    in_zahlenreihe = fopen("zahlenreihe.txt", "r");
+    FILE * in_ziffernreihe;
+    in_ziffernreihe = fopen("ziffernreihe.txt", "r");
 
-    int zahlenreihe[100];
+    int ziffernreihe[50];
 
-    for (int i=0; i<100; i++)
+    for (int i=0; i<50; i++)
     {
-        fscanf(in_zahlenreihe, " %i,", &zahlenreihe[i]);
+        fscanf(in_ziffernreihe, " %i,", &ziffernreihe[i]);
     }
 
     int stelle_max = 0;
     int max = 0;
 
-    for(int i=0; i<100; i++)
+    for(int i=0; i<50; i++)
     {
         #ifdef DEBUG
         printf("\x1b[35m i = %i \x1b[30m\n", i);
         #endif
-        if (zahlenreihen_pruefung(zahlenreihe[i]) == 1)
+        if (komplette_ziffernreihe_pruefung(ziffernreihe[i]) == 1)
         {
             int x = 0;
             for(int j=1; x<1; j++)
@@ -58,7 +58,7 @@ int main()
                 #ifdef DEBUG
                 printf("\x1b[35m j = %i \x1b[30m\n", j);
                 #endif
-                if (zahlenreihen_pruefung(zahlenreihe[i+j]) == 0)
+                if (komplette_ziffernreihe_pruefung(ziffernreihe[i+j]) == 0)
                 {
                     if(j>max)
                     {
@@ -73,18 +73,18 @@ int main()
     }
 
     if (max < 2)
-            printf("In der Zahlenreihe existiert keine längste Reihe nicht aufeinanderfolgender Ziffern! \n");
+            printf("In der Ziffernreihe existiert keine längste Reihe nicht aufeinanderfolgender Ziffern! \n");
     else
     {
-        printf("Die längste Reihe nicht aufeinanderfolgender Ziffern ist: %i  \n", max);
-        printf("Die Zahlen lauten: ");
+        printf("Die längste Reihe, nicht aufeinanderfolgender Ziffern ist: %i Ziffern lang. \n", max);
+        printf("Die Ziffern lauten: ");
 
         for(int i=stelle_max; i < stelle_max+max; i++)
         {
-            printf("%i, ", zahlenreihe[i]);
+            printf("%i, ", ziffernreihe[i]);
         }
         printf("\n");
     }
-    fclose(in_zahlenreihe);
+    fclose(in_ziffernreihe);
     return 0;
 }

@@ -11,24 +11,24 @@
 #include <math.h>
 #include <string.h>
 #include <time.h>
-#define MAX 20
-#define NUMS_TO_GENERATE 100
+#define MAX 9
+#define NUMS_TO_GENERATE 50
 
 int main() {
 
-        int zufallszahlen[NUMS_TO_GENERATE];
+        int zufallsziffern[NUMS_TO_GENERATE];
 
         FILE * outstream;
-        outstream = fopen("zahlenreihe.txt", "w");
+        outstream = fopen("ziffernreihe.txt", "w");
 
-	
-	srand(time(NULL));
+
+        srand(time(NULL));
         for (int i = 0; i < NUMS_TO_GENERATE; i++){
-                zufallszahlen[i] = rand() % MAX;
+                zufallsziffern[i] = rand() % MAX;
         }
 
         for (int i = 0; i < NUMS_TO_GENERATE; i++){
-                fprintf(outstream, "%d, ", zufallszahlen[i]);
+                fprintf(outstream, "%d, ", zufallsziffern[i]);
         }
 
         fclose(outstream);
