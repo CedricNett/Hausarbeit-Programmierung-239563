@@ -21,7 +21,6 @@ int main() {
         FILE * outstream;
         outstream = fopen("ziffernreihe.txt", "w");
 
-
         srand(time(NULL));
         for (int i = 0; i < NUMS_TO_GENERATE; i++){
                 zufallsziffern[i] = rand() % MAX;

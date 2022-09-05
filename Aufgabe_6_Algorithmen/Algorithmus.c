@@ -19,13 +19,13 @@ int komplette_ziffernreihe_pruefung(int reihe)
         if (komplette_ziffernreihe[i] == reihe)
         {
                 #ifdef DEBUG
-                printf("\t\x1b[34m//DEBUG-PRIMZAHL-PRÜFUNG: \x1b[32mreturn 1 \x1b[0m\n");
+                printf("\t\x1b[34m//DEBUG-ZIFFERNREIHE-PRÜFUNG: \x1b[32mreturn 1 \x1b[0m\n");
                 #endif
                 return 1;
         }
     }
     #ifdef DEBUG
-    printf("\t\x1b[34m//DEBUG-PRIMZAHL-PRÜFUNG: \x1b[31mreturn 0 \x1b[0m\n");
+    printf("\t\x1b[34m//DEBUG-ZIFFERNREIHE-PRÜFUNG: \x1b[31mreturn 0 \x1b[0m\n");  
     #endif
     return 0;
 }
