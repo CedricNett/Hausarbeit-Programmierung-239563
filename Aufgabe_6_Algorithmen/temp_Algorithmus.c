@@ -23,33 +23,32 @@ int main()
         }
 
 	int a;
-	int i_max;
 
         int ziffernreihe[50];
 
-        for (int i=0; i<50; i++)
+       for (int i=0; i<50; i++)
         {
                 fscanf(zr, " %i,", &ziffernreihe[i]);
 
                 printf(" i = %i -> j = %i \n", i, ziffernreihe[i]);
 	}
 
-		for (int j=0; j<50; j++)
-		{
-			int i=0;
+	printf("\n\n");
 
+		for (int i=0,j=1; i<50,j<50; i++,j++)
+		{
 			a = ziffernreihe[j] - ziffernreihe[i];
 
-                	printf("a = %i \n",a);
+                	printf("%i -> a = %i \n", j, a);
 
-                	if(a = 1)
+                	if(a == 1)
                 	{
-                        	printf("return 1 \n");
+                        	printf("return 1 \n\n");
                 	}
 
                 	else
                 	{
-                        	printf("return 0 \n");
+                        	printf("return 0 \n\n");
                 	}
 		}	
         
