@@ -7,28 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int komplette_ziffernreihe[]={ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-
-int komplette_ziffernreihe_pruefung(int reihe)
-{
-
-    printf("Ziffernreihe: zahl: %i", reihe);
-
-    for (int i=0; i<10; i++)
-    {
-        if (komplette_ziffernreihe[i] == reihe)
-        {
-                printf("DEBUG-PRIMZAHL-PRÜFUNG: return 1 \n");
-
-                return 1;
-        }
-    }
-
-    printf("DEBUG-PRIMZAHL-PRÜFUNG: return 0 \n");
-
-    return 0;
-}
-
 int main()
 {
 
@@ -42,20 +20,43 @@ int main()
         else
         {
                 printf("Datei konnte geöffnet werden.\n");
-
-                fclose(zr);
         }
+
+	int a;
+	int i_max;
 
         int ziffernreihe[50];
 
         for (int i=0; i<50; i++)
         {
                 fscanf(zr, " %i,", &ziffernreihe[i]);
-                printf(" i = %i \n", i);
-        }
+
+                printf(" i = %i -> j = %i \n", i, ziffernreihe[i]);
+	}
+
+		for (int j=0; j<50; j++)
+		{
+			int i=0;
+
+			a = ziffernreihe[j] - ziffernreihe[i];
+
+                	printf("a = %i \n",a);
+
+                	if(a = 1)
+                	{
+                        	printf("return 1 \n");
+                	}
+
+                	else
+                	{
+                        	printf("return 0 \n");
+                	}
+		}	
+        
 
     int stelle_max = 0;
     int max = 0;
 
+	fclose(zr);
     return 0;
 }
