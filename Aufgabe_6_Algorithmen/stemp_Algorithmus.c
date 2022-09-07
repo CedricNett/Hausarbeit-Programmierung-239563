@@ -29,67 +29,60 @@ int main()
 
     int ziffernreihe[50];
 
-    for (int i=0; i<50; i++)
+ /*   for (int i=0; i<50; i++)
     {
         fscanf(zr, " %i,", &ziffernreihe[i]);
 
         printf(" i = %i -> j = %i \n", i, ziffernreihe[i]);
-    }
+    } */
 
-    int stelle_max = 0;
-    int max = 0;
-    int i = 0;
-    int j = 0;
+    int i_max = 0;
+    int j_max = 0;
 
-    for (i=0; i<50; i++)
+    //for ( i, j; i<50, j<50; i++ ,j++)
+    for (int i = 0; i<50; i++)
     {
-       // a = ziffernreihe[j] - ziffernreihe[i];
-	
+	int j = 0;
+
 	j = i + 1;
 
-//	for (int j=1; x<1; j++)
-	while(i == j)
-	{
-	    a = ziffernreihe[j] - ziffernreihe[i];
+        fscanf(zr, " %i,", &ziffernreihe[i]);
 
-	    printf("\n j -> %i  -  i -> %i  =  %i \n", ziffernreihe[j], ziffernreihe[i], a);
+	fscanf(zr, " %i,", &ziffernreihe[j]);
 
-            if(a == 1)
-            {
-                    max = j;
+        a = ziffernreihe[j] - ziffernreihe[i];
 
-                    stelle_max = i;
-            }
+        printf("\n j -> %i  -  i -> %i  =  a -> %i \n", ziffernreihe[j], ziffernreihe[i], a);
 
-            i = i + j;
+        if(a == 1)
+        {
+            j_max = j;
 
-      //    x = 1;
-
+            i_max = i;
+    
             printf(" Hier sind aufeinanderfolgende Zahlen \n");
         }
-    
 
-       else
+        else
         {
             printf(" Hier sind keine aufeinanderfolgende Zahlen \n");
         }
 
     }
-    
 
-    if (max < 2)
+    if (j_max < 2)
     {
-	    printf("\n In der Zahlenreihe gibt es keine nicht aufeinanderfolgenden Ziffern! \n");
+            printf("\n In der Zahlenreihe gibt es keine nicht aufeinanderfolgenden Ziffern! \n");
     }
 
     else
     {
-    	printf("\n Die längste Reihe von nicht aufeinanderfolgenden Ziffern ist %i Ziffern lang.\n", max);
-    	printf("\n Die Ziffern lauten: ");
+        printf("\n Die längste Reihe von nicht aufeinanderfolgenden Ziffern ist %i Ziffern lang.\n", j_max);
+        printf("\n Die Ziffern lauten: ");
 
-    	for(int i=stelle_max; i < stelle_max+max; i++)
-    	{
-	    printf("%i, ", ziffernreihe[i]);
+        for(int i=i_max; i < i_max+j_max; i++)
+        {
+            printf("%i, ", ziffernreihe[i]);
         }
         printf("\n");
     }
