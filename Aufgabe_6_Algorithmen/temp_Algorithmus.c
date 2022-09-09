@@ -39,8 +39,8 @@ int daten_einlesen(int daten[MAX_ZIFFERN])
 
 void laengste_nichtreihe_suchen(int daten[MAX_ZIFFERN], int *pos, int *laenge)
 {
-	*pos =	0;
- 	*laenge = 0;
+    *pos =	0;
+    *laenge = 0;
 }
 
 int main()
@@ -52,19 +52,19 @@ int main()
         ziffernreihe[i]=0;
     }
 
-    int MAX_ZIFFERN = daten_einlesen(ziffernreihe);
-    int a;
+    MAX_ZIFFERN == daten_einlesen(ziffernreihe);
+    int rechnungs_zwischenschritt = 0;
     int position_max = 0;
     int laenge_max = 0;
     int start=0;
 
     for (int i = 0; i<MAX_ZIFFERN; i++)
     {
-        a = ziffernreihe[i+1] - ziffernreihe[i];
+        rechnungs_zwischenschritt = ziffernreihe[i+1] - ziffernreihe[i];
 
-        printf("\n i+1 -> %i  -  i -> %i  =  a -> %i \n", ziffernreihe[i+1], ziffernreihe[i], a);
+        printf("\n i+1 -> %i  -  i -> %i  =  a -> %i \n", ziffernreihe[i+1], ziffernreihe[i], rechnungs_zwischenschritt);
 
-        if(a == 1) // reihe ist zuende
+        if(rechnungs_zwischenschritt == 1) // reihe ist zuende
         {
             int laenge = i-start;
             // neue laenge größer als vorherige reihe
