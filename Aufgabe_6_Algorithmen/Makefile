@@ -1,4 +1,6 @@
-make: compiliere_Zifferngenrator ausfuehren_des_Zifferngenrators compiliere_Algorithmus DEBUG_compiliere_algorithmus ausfuehren_des_Algorithmus	
+make: compiliere_Zifferngenrator ausfuehren_des_Zifferngenrators compiliere_Algorithmus ausfuehren_des_Algorithmus	
+
+make ziffernreihe: compiliere_Zifferngenrator ausfuehren_des_Zifferngenrators
 
 compiliere_Zifferngenrator: 
 	gcc -o Zifferngenerator.elf Zifferngenerator.c
@@ -11,6 +13,3 @@ compiliere_Algorithmus:
 
 ausfuehren_des_Algorithmus:
 	./Algorithmus.elf
-
-DEBUG_compiliere_algorithmus:
-	gcc -o Algorithmus.elf Algorithmus.c -DDEBUG

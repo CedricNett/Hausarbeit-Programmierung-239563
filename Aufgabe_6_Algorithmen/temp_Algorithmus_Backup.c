@@ -26,8 +26,8 @@ int main()
 // Hier werden die Ziffern der Datei mit Integers versehen um diese später zu nutzen
 
     int a;
-
-    int ziffernreihe[50];
+    const int max_ziffern = 50;
+    int ziffernreihe[max_ziffern];
 
  /*   for (int i=0; i<50; i++)
     {
@@ -40,7 +40,7 @@ int main()
     int j_max = 0;
 
     //for ( i, j; i<50, j<50; i++ ,j++)
-    for (int i = 0; i<50; i++)
+    for (int i = 0; i<max_ziffern; i++)
     {
 	int j = 0;
 
