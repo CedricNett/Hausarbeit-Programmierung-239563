@@ -9,5 +9,3 @@
 #include <ctype.h>
 #include <unistd.h>
 #include <math.h>
-#include "header_help-catalogue.h"
-#include <static_function-generator.h>
