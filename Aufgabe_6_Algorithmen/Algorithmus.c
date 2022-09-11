@@ -7,10 +7,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
-{
+#define MAX_ZIFFERN 100
 
-//  Hier wird geschaut ob die Zifferndatei geöffnet wurde
+int daten_einlesen(int daten[MAX_ZIFFERN])
+{
     FILE * zr;
     zr = fopen("ziffernreihe.txt", "r");
 
@@ -18,82 +18,90 @@ int main()
     {
         printf("Datei konnte NICHT geöffnet werden.\n");
     }
+
     else
     {
         printf("Datei konnte geöffnet werden.\n");
     }
 
-// Hier werden die Ziffern der Datei mit Integers versehen um diese später zu nutzen
+    int i = 0;
+    int r = 1;
 
-    int a;
-
-    int ziffernreihe[50];
-
-    for (int i=0; i<50; i++)
+    while(r != EOF && i-1 < MAX_ZIFFERN)
     {
-        fscanf(zr, " %i,", &ziffernreihe[i]);
-
-        printf(" i = %i -> j = %i \n", i, ziffernreihe[i]);
+        r = fscanf(zr, " %i,", &daten[i]);
+        i++;
     }
 
-    int stelle_max = 0;
-    int max = 0;
-    int i = 0;
-    int j = 0;
+    fclose(zr);
+    return i-1;
+}
 
-    for (i=0; i<50; i++)
+/*void laengste_nichtreihe_suchen(int daten[MAX_ZIFFERN], int *pos, int *laenge)
+{
+    *pos = 0;
+    *laenge = 0;
+}*/
+
+int main()
+{
+    int ziffernreihe[MAX_ZIFFERN];
+
+    for(int i =0; i<MAX_ZIFFERN; i++)
     {
-       // a = ziffernreihe[j] - ziffernreihe[i];
-	
-	j = i + 1;
+        ziffernreihe[i]=0;
+    }
 
-//	for (int j=1; x<1; j++)
-	while(i == j)
-	{
-	    a = ziffernreihe[j] - ziffernreihe[i];
+    int daten_laenge = daten_einlesen(ziffernreihe);
+    int rechnungs_zwischenschritt = 0;
+    int position_max = 0;
+    int laenge_max = 0;
+    int start=0;
 
-	    printf("\n j -> %i  -  i -> %i  =  %i \n", ziffernreihe[j], ziffernreihe[i], a);
+    for (int i = 0; i<daten_laenge; i++)
+    {
+        rechnungs_zwischenschritt = ziffernreihe[i+1] - ziffernreihe[i];
 
-            if(a == 1)
+        printf("\n i+1 -> %i  -  i -> %i  =  a -> %i \n", ziffernreihe[i+1], ziffernreihe[i], rechnungs_zwischenschritt);
+
+        if(rechnungs_zwischenschritt == 1) // reihe ist zuende
+        {
+            int laenge = i-start-1;
+            // neue laenge größer als vorherige reihe
+            if(laenge > laenge_max)
             {
-                    max = j;
-
-                    stelle_max = i;
+                position_max = i - laenge;
+                laenge_max = laenge;
             }
 
-            i = i + j;
-
-      //    x = 1;
+            start=i; //neuer startpunkt
 
             printf(" Hier sind aufeinanderfolgende Zahlen \n");
         }
-    
 
-       //else
-       // {
-       //     printf(" Hier sind keine aufeinanderfolgende Zahlen \n");
-       // }
+        else
+        {
+            printf(" Hier sind keine aufeinanderfolgende Zahlen \n");
+        }
 
     }
-    
 
-    if (max < 2)
+    if (laenge_max < 2)
     {
-	    printf("\n In der Zahlenreihe gibt es keine nicht aufeinanderfolgenden Ziffern! \n");
+        printf("\n In der Zahlenreihe gibt es keine nicht aufeinanderfolgenden Ziffern! \n");
     }
 
     else
     {
-    	printf("\n Die längste Reihe von nicht aufeinanderfolgenden Ziffern ist %i Ziffern lang.\n", max);
-    	printf("\n Die Ziffern lauten: ");
+        printf("\n Die längste Reihe von nicht aufeinanderfolgenden Ziffern ist %i Ziffern lang.\n", laenge_max);
+        printf("\n Die Ziffern lauten: ");
 
-    	for(int i=stelle_max; i < stelle_max+max; i++)
-    	{
-	    printf("%i, ", ziffernreihe[i]);
+        for(int i=0; i < laenge_max; i++)
+        {
+            printf("%i, ", ziffernreihe[i + position_max]);
         }
         printf("\n");
     }
 
-    fclose(zr);
     return 0;
 }
