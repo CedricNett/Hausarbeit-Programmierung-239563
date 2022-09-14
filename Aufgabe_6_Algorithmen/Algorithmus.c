@@ -37,12 +37,6 @@ int daten_einlesen(int daten[MAX_ZIFFERN])
     return i-1;
 }
 
-/*void laengste_nichtreihe_suchen(int daten[MAX_ZIFFERN], int *pos, int *laenge)
-{
-    *pos = 0;
-    *laenge = 0;
-}*/
-
 int main()
 {
     int ziffernreihe[MAX_ZIFFERN];
