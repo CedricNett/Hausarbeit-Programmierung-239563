@@ -5,3 +5,4 @@
 //      Hausarbeit:     Aufgabe 7 "Header Funktion"
 
 float Rechteckfunktion(float time);
+

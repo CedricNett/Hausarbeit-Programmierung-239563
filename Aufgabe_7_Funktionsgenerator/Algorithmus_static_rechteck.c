@@ -7,7 +7,6 @@
 #include <math.h>
 #include <stdio.h>
 
-
 float Rechteckfunktion(float a, float b, float max)
 {
 	if(x==1)
