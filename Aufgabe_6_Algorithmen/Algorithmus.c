@@ -9,6 +9,7 @@
 
 #define MAX_ZIFFERN 100
 
+// Daten einlesen
 int daten_einlesen(int daten[MAX_ZIFFERN])
 {
     FILE * zr;
@@ -37,6 +38,7 @@ int daten_einlesen(int daten[MAX_ZIFFERN])
     return i-1;
 }
 
+//Daten verarbeiten und ausgeben
 int main()
 {
     int ziffernreihe[MAX_ZIFFERN];
