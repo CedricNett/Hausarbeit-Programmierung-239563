@@ -72,19 +72,19 @@ int main()
 
             start=i; //neuer startpunkt
 
-            printf(" Hier sind aufeinanderfolgende Zahlen \n");
+            printf(" Hier sind aufeinanderfolgende Ziffern \n");
         }
 
         else
         {
-            printf(" Hier sind keine aufeinanderfolgende Zahlen \n");
+            printf(" Hier sind keine aufeinanderfolgende Ziffern \n");
         }
 
     }
 
     if (laenge_max < 2)
     {
-        printf("\n In der Zahlenreihe gibt es keine nicht aufeinanderfolgenden Ziffern! \n");
+        printf("\n In der Ziffernreihe gibt es keine nicht aufeinanderfolgenden Ziffern! \n");
     }
 
     else
